@@ -43,7 +43,7 @@ class AddQuestion extends Component {
             value={this.state.question}/>
           </View>
           <FormLabel>Select your Answer</FormLabel>
-          <Text h3 style={{marginTop: 5}}>{this.state.answer!==null?`${this.state.answer}`: ""}</Text>
+          <Text h3 style={{marginTop: 5}}>Answer: {this.state.answer!==null?`${this.state.answer}`: ""}</Text>
           <View style={{flexDirection: 'row', marginTop: 30}}>
           <View style={{width: '35%', marginRight: '5%'}}>
           <Button

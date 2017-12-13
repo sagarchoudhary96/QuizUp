@@ -11,7 +11,7 @@ class DeckDetail extends Component {
       <View style={styles.container}>
          <Text h2> {this.props.deck.title} </Text>
          <Text h4> { `${this.props.deck.questions.length} cards` }</Text>
-         <Button
+         {this.props.deck.questions.length > 0 && <Button
              raised
              icon={{name: 'ios-flash', type: 'ionicon', size: 25}}
              title='Start Quiz'
@@ -19,7 +19,7 @@ class DeckDetail extends Component {
              borderRadius={50}
              onPress={()=>this.props.navigation.navigate('Quiz', {title: this.props.deck.title, deck: this.props.deck})}
              fontSize={18}
-             fontWeight="500"/>
+             fontWeight="500"/>}
 
           <Button
               raised
