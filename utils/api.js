@@ -35,7 +35,7 @@ const initData = () => {
         },
 
         Css: {
-            title: 'CSS',
+            title: 'Css',
             questions: [
                 {
                     question: 'To convert Java to JavaScript, you would use a compiler.',
