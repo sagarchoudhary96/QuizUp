@@ -10,7 +10,7 @@ class DeckMain extends Component {
       <Card title={item.title}>
         <Text style={{
             alignSelf: 'center'
-          }}>{`${item.questions.length} card`}</Text>
+          }}>{item.questions.length} {`${item.questions.length === 1 ? 'Card' : 'Cards'}`}</Text>
       </Card>
     </View>
   </TouchableOpacity>)

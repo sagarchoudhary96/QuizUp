@@ -11,7 +11,7 @@ class DeckDetail extends Component {
         {this.props.deck.title}
       </Text>
       <Text h4>
-        {`${this.props.deck.questions.length} cards`}</Text>
+        {this.props.deck.questions.length} {`${this.props.deck.questions.length === 1 ? 'Card' : 'Cards'}`}</Text>
       {
         this.props.deck.questions.length > 0 && <Button raised icon={{
               name: 'ios-flash',
