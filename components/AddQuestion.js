@@ -37,10 +37,11 @@ class AddQuestion extends Component {
       <KeyboardAvoidingView style={styles.container}  behaviour="padding">
 
           <FormLabel>Enter you Question</FormLabel>
-          <View style={{width: '85%', margin: 15}}>
+          <View style={{width:'85%', margin:15}}>
             <FormInput
             onChangeText={this.handleChange}
-            value={this.state.question}/>
+            value={this.state.question}
+            inputStyle={{width:'100%'}}/>
           </View>
           <FormLabel>Select your Answer</FormLabel>
           <Text h3 style={{marginTop: 5}}>Answer: {this.state.answer!==null?`${this.state.answer}`: ""}</Text>

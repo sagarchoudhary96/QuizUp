@@ -40,6 +40,7 @@ class AddDeck extends Component {
           <FormInput
           onChangeText={this.handleChange}
           value={this.state.deck_title}
+          inputStyle={{width:'100%'}}
         />
         </View>
         <View style={{marginTop: 25}}>
