@@ -1,6 +1,6 @@
 import React from 'react';
 import {StatusBar, View} from 'react-native';
-import {TabNavigator, StackNavigator, DrawerNavigator} from 'react-navigation';
+import {TabNavigator, StackNavigator, DrawerNavigator} from 'react-navigation'
 import {FontAwesome, Ionicons} from '@expo/vector-icons'
 import DeckMain from './components/DeckMain'
 import AddDeck from './components/AddDeck'
@@ -33,7 +33,7 @@ const CustomStatusBar = ({
 </View>)
 
 const StackMain = StackNavigator({
-  Decks: {
+  DecksList: {
     screen: DeckMain,
     navigationOptions: {
       title: "QuizUp"

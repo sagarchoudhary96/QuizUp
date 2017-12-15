@@ -2,8 +2,10 @@ import React, {Component} from 'react'
 import {StyleSheet, View} from 'react-native'
 import {connect} from 'react-redux'
 import {Card, Button, Text} from 'react-native-elements'
+import {NavigationActions} from 'react-navigation'
 
 class Quiz extends Component {
+
   state = {
     correct: 0,
     incorrect: 0,
@@ -43,6 +45,20 @@ class Quiz extends Component {
     const currentQuesNo = this.state.current + 1
     const leftQuestionNo = this.state.total - currentQuesNo
     const totalQues = this.state.total
+
+    const resetAction = NavigationActions.reset({
+      index: 1,
+      actions: [
+        NavigationActions.navigate({routeName: 'DecksList'}),
+        NavigationActions.navigate({
+          routeName: 'Quiz',
+          params: {
+            title: this.props.navigation.state.params.deck.title,
+            deck: this.props.navigation.state.params.deck
+          }
+        })
+      ]
+    })
 
     return (<View style={styles.container}>
       {
@@ -208,8 +224,17 @@ class Quiz extends Component {
                   justifyContent: 'flex-end',
                   alignItems: 'center'
                 }}>
-                <Button raised large backgroundColor='#FF7043' borderRadius={5} fontSize={20} fontWeight="500" title="Go to Deck" onPress={() => {
+                <Button raised large backgroundColor='#4DB6AC' borderRadius={5} fontSize={20} fontWeight="500" title="Go to Deck" onPress={() => {
                     this.props.navigation.goBack()
+                  }}/>
+              </View>
+              <View style={{
+                  flex: 0.2,
+                  justifyContent: 'flex-end',
+                  alignItems: 'center'
+                }}>
+                <Button raised large backgroundColor='#0288D1' borderRadius={5} fontSize={20} fontWeight="500" title="Restart Quiz" onPress={() => {
+                    this.props.navigation.dispatch(resetAction)
                   }}/>
               </View>
             </View>

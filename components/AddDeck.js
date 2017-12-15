@@ -17,11 +17,11 @@ class AddDeck extends Component {
   }
 
   handleSubmit = () => {
-
-    (this.state.deck_title !== "") && saveDeckTitle(this.state.deck_title).then(() => {
-      this.props.dispatch(addDeck(this.state.deck_title))
+    const title = this.state.deck_title
+    {(title !== "") && saveDeckTitle(title).then(() => {
+      this.props.dispatch(addDeck(title))
       this.setState({deck_title: ""})
-    }).then(this.props.navigation.navigate('Decks'))
+    }).then(()=>this.props.navigation.navigate('DeckDetail', {title: title}))}
   }
 
   render() {
