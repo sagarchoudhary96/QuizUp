@@ -14,6 +14,7 @@ import {Provider} from 'react-redux'
 import {fetchDecks} from './actions'
 import { getDecks } from './utils/api'
 import DeckDetail from './components/DeckDetail'
+import {setLocalNotification} from './utils/helper'
 
 const STORE = createStore(decks)
 
@@ -35,7 +36,7 @@ const StackMain = StackNavigator({
   Decks : {
     screen: DeckMain,
     navigationOptions: {
-      title: "QUizUp"
+      title: "QuizUp"
     }
   },
   DeckDetail: {
@@ -93,6 +94,10 @@ const Tabs = TabNavigator({
 
 
 export default class App extends React.Component {
+
+  componentDidMount() {
+    setLocalNotification()
+  }
   render() {
     return (
       <Provider store={STORE}>
