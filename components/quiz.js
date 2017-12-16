@@ -60,6 +60,19 @@ class Quiz extends Component {
       ]
     })
 
+    const resetActionDeck = NavigationActions.reset({
+      index: 1,
+      actions: [
+        NavigationActions.navigate({routeName: 'DecksList'}),
+        NavigationActions.navigate({
+          routeName: 'DeckDetail',
+          params: {
+            title: this.props.navigation.state.params.deck.title
+          }
+        })
+      ]
+    })
+
     return (<View style={styles.container}>
       {
         currentQuesNo <= totalQues
@@ -225,7 +238,7 @@ class Quiz extends Component {
                   alignItems: 'center'
                 }}>
                 <Button raised large backgroundColor='#4DB6AC' borderRadius={5} fontSize={20} fontWeight="500" title="Go to Deck" onPress={() => {
-                    this.props.navigation.goBack()
+                    this.props.navigation.dispatch(resetActionDeck)
                   }}/>
               </View>
               <View style={{
